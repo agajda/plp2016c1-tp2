@@ -28,3 +28,6 @@ ej(1, [rombo, cuadrado, espacio, perro, cuadrado, sol, cuadrado]).
 ej(2, [rombo, cuadrado, espacio, perro, triangulo, sol, cuadrado]).
 
 ej(3, [rombo, cuadrado, perro, cuadrado, sol, luna, triangulo, estrella, arbol, gato]).
+
+% Tests:
+

@@ -20,7 +20,7 @@ palabras(S, [S1|P1]) :- append(S1, [espacio|S2], S), not(member(espacio, S1)), p
 % Habría que preguntar si esto vale, la consigna parecería permitirlo con "generar un mapeo".
 
 asignar_var(A, MI, MI) :- member((A,_), MI).
-asignar_var(A, MI, [(A,C)|MI]) :- not(member((A,C), MI)).
+asignar_var(A, MI, [(A,C1)|MI]) :- not(member((A,_), MI)), (length(MI, 0); member((_, C2), MI), not(C1 == C2)).
 
 % Ej5 - palabras_con_variables(P, V).
 

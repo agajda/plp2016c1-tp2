@@ -1,6 +1,7 @@
-% Ej1 - diccionario_lista(?S). Equivalente a diccionario(S) pero con listas de códigos de caracteres en vez de strings.
-
-diccionario_lista(S) :- diccionario(L), string_codes(L, S). 
+%% Ejercicio 1 
+%% diccionario_lista(?Lista) es un diccionario de listas de codigo ASCII basado en diccionario.
+%% Como string_codes funciona cuando al menos un paramentro esta instanciado se puede usar $Lista.
+diccionario_lista(Lista) :- diccionario(String), string_codes(String,Lista).
 
 % Ej2 - juntar_con(+L, ?J, ?R).
 % L requiere estar definido para que no se ponga a generar todas las posibles listas (infinitas).
@@ -15,9 +16,9 @@ palabras(S, [S]) :- not(member(espacio, S)).
 palabras(S, [S1|P1]) :- append(S1, [espacio|S2], S), not(member(espacio, S1)), palabras(S2, P1).
 
 % Ej4 - asignar_var(+A, +MI, -MF).
-% Elegimos que no venga instanciado MF así no manejamos permutaciones.
-% Además, agregamos el mapeo al principio, no al final como el ejemplo del enunciado. 
-% Habría que preguntar si esto vale, la consigna parecería permitirlo con "generar un mapeo".
+% Elegimos que no venga instanciado MF asÃ­ no manejamos permutaciones.
+% AdemÃ¡s, agregamos el mapeo al principio, no al final como el ejemplo del enunciado. 
+% HabrÃ­a que preguntar si esto vale, la consigna parecerÃ­a permitirlo con "generar un mapeo".
 
 asignar_var(A, MI, MI) :- member((A,_), MI).
 asignar_var(A, MI, [(A,C1)|MI]) :- not(member((A,_), MI)), (length(MI, 0); member((_, C2), MI), not(C1 == C2)).
